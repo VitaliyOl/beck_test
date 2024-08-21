@@ -3,7 +3,7 @@ const playwright = require("playwright");
 const fetchSteamData = async (appid) => {
   try {
     const browser = await playwright.chromium.launch({
-      headless: true, // Це вже вказано, тому залиште так.
+      headless: false,
       args: ["--no-sandbox", "--disable-setuid-sandbox"],
     });
 
