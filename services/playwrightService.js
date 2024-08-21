@@ -2,18 +2,14 @@ const playwright = require("playwright");
 
 const fetchSteamData = async (appid) => {
   try {
-    const browser = await playwright.chromium.launch({
-      headless: true,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
-
+    const browser = await playwright.chromium.launch({ headless: false });
     const page = await browser.newPage();
 
     await page.goto(`https://steamdb.info/app/${appid}/charts/#followers`, {
       waitUntil: "load",
     });
 
-    console.log("Page loaded successfully its Ok");
+    console.log("Page loaded successfully");
 
     // Store Data
     const storeData = await page.evaluate(() => {

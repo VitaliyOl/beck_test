@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "install-browsers": "npx playwright install --with-deps",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "npx playwright install"
   },
   "keywords": [],
   "author": "",
