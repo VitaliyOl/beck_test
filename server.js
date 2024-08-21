@@ -2,7 +2,11 @@ const express = require("express");
 const { fetchSteamData } = require("./services/playwrightService");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 10000;
+
+app.get("/", (req, res) => {
+  res.send("Hello from Playwright!");
+});
 
 app.get("/steamdata/:appid", async (req, res) => {
   const { appid } = req.params;
