@@ -2,7 +2,11 @@ const playwright = require("playwright");
 
 const fetchSteamData = async (appid) => {
   try {
-    const browser = await playwright.chromium.launch({ headless: false });
+    const browser = await playwright.chromium.launch({
+      headless: true, // Це вже вказано, тому залиште так.
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
+
     const page = await browser.newPage();
 
     await page.goto(`https://steamdb.info/app/${appid}/charts/#followers`, {
