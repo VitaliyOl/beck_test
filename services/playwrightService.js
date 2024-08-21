@@ -3,8 +3,14 @@ const playwright = require("playwright");
 const fetchSteamData = async (appid) => {
   try {
     const browser = await playwright.chromium.launch({
-      headless: false,
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+      headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--single-process",
+      ],
     });
 
     const page = await browser.newPage();
