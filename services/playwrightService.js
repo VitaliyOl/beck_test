@@ -13,7 +13,7 @@ const fetchSteamData = async (appid) => {
       waitUntil: "load",
     });
 
-    console.log("Page loaded successfully");
+    console.log("Page loaded successfully its Ok");
 
     // Store Data
     const storeData = await page.evaluate(() => {
