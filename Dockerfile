@@ -4,12 +4,12 @@ WORKDIR /app
 
 COPY package*.json ./
 
-# Install dependencies
 RUN npm install
 
-COPY . .
+# Run Playwright installation with root privileges
+USER root
+RUN npx playwright install --with-deps
 
-# Ensure necessary browsers are installed with appropriate permissions
-RUN chmod -R 777 /ms-playwright && npx playwright install --with-deps
+COPY . .
 
 CMD ["node", "server.js"]
