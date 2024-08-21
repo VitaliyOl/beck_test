@@ -8,4 +8,7 @@ RUN npm install
 
 COPY . .
 
+# Ensure necessary browsers are installed
+RUN npx playwright install --with-deps
+
 CMD ["node", "server.js"]
